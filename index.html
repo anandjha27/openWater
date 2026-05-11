@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>openWater — Mithila Jal Shakti</title>
+  <meta name="description" content="openWater Foundation — Environmental intelligence for clean rivers. Real-time water pollution monitoring in Mithila, Bihar.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- ─── NAVIGATION ─── -->
+<nav id="mainNav">
+  <a href="#" class="nav-logo" data-page="page-home">open<span>Water</span></a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#" data-page="page-home">Home</a></li>
+    <li>
+      <button>Gallery <span class="caret">▾</span></button>
+      <div class="dropdown">
+        <a href="#" onclick="event.preventDefault(); showPage('page-gallery'); setTimeout(() => switchGalleryTab('mission'), 100)">Mission Photos</a>
+        <a href="#" onclick="event.preventDefault(); showPage('page-gallery'); setTimeout(() => switchGalleryTab('foundation'), 100)">Foundation Photos</a>
+      </div>
+    </li>
+    <li><a href="#" data-page="page-events">Events &amp; Talks</a></li>
+    <li>
+      <button>R&amp;D <span class="caret">▾</span></button>
+      <div class="dropdown">
+        <a href="#" onclick="event.preventDefault(); showPage('page-rnd'); setTimeout(() => switchRndTab('missions'), 100)">Missions</a>
+        <a href="#" onclick="event.preventDefault(); showPage('page-rnd'); setTimeout(() => switchRndTab('experiments'), 100)">Experiments</a>
+        <a href="#" onclick="event.preventDefault(); showPage('page-rnd'); setTimeout(() => switchRndTab('equipment'), 100)">Equipment</a>
+        <a href="#" onclick="event.preventDefault(); showPage('page-rnd'); setTimeout(() => switchRndTab('journal'), 100)">Quarterly Journal</a>
+      </div>
+    </li>
+    <li><a href="#" data-page="page-news">News</a></li>
+    <li>
+      <button>About Us <span class="caret">▾</span></button>
+      <div class="dropdown">
+        <a href="#" data-page="page-about">About openWater</a>
+        <a href="#" onclick="showPage('page-about'); setTimeout(() => document.getElementById('team-section').scrollIntoView({behavior:'smooth'}), 100)">Team</a>
+        <a href="#" data-page="page-team">Full Team Page</a>
+        
+        <a href="#" onclick="showPage('page-about'); setTimeout(() => document.getElementById('address-section').scrollIntoView({behavior:'smooth'}), 100)">Address & Map</a>
+        <a href="#" onclick="showPage('page-about'); setTimeout(() => document.getElementById('contact-section').scrollIntoView({behavior:'smooth'}), 100)">Contact Us</a>
+      </div>
+    </li>
+    <li><a href="#" data-page="page-articles">Blog</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- ════════════════════════════════════════
+     PAGE: HOME
+════════════════════════════════════════ -->
+<div class="page active" id="page-home">
+
+  <!-- Hero -->
+  <section id="hero-section">
+    <div class="hero-bg"></div>
+    <div class="hero-content">
+      <div class="hero-tag">openWater · Mithila, Bihar</div>
+      <h1 class="hero-title"><em>Environmental Intelligence</em><br>for Clean River</h1>
+      <p class="hero-sub">Mithila Jal Shakti</p>
+      <a href="#" class="hero-cta" data-page="page-about">Explore Our Work</a>
+    </div>
+    <div class="hero-scroll">Scroll</div>
+  </section>
+
+  <!-- Stats -->
+  <div class="stats-bar">
+    <div class="stat-item"><div class="stat-num">0</div><div class="stat-label">Rivers Monitored</div></div>
+    <div class="stat-item"><div class="stat-num">0</div><div class="stat-label">Sensors Deployed</div></div>
+    <div class="stat-item"><div class="stat-num">0</div><div class="stat-label">Data Points / Day</div></div>
+    <div class="stat-item"><div class="stat-num">0</div><div class="stat-label">Years Active</div></div>
+  </div>
+
+  <!-- Mission Strip -->
+  <section class="home-mission">
+    <div class="container">
+      <div class="home-mission-inner">
+        <div class="mission-img-wrap fade-in">
+          <img src="Gallery/map-lr.webp" alt="River monitoring" loading="lazy">
+          
+        </div>
+        <div class="fade-in">
+          <p class="section-label">Our Mission</p>
+          <h2 class="section-title">Protecting the rivers<br><em>of Mithila</em></h2>
+          <div class="divider"></div>
+          <p class="section-body">openWater combines grassroots community engagement with modern sensor technology to protect and restore the rivers that sustain millions of lives across the Mithila belt.</p>
+          <ul class="mission-points">
+            <li>Real-time water quality monitoring across 12 rivers</li>
+            <li>Community-led clean-up drives and pollution mapping</li>
+            <li>Policy advocacy for stricter industrial discharge norms</li>
+            <li>Open-access environmental data for citizens and researchers</li>
+            <li>Youth education linking schools with river ecosystems</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery Preview -->
+  <section class="home-gallery-preview">
+    <div class="container fade-in">
+      <p class="section-label">Gallery</p>
+      <h2 class="section-title">Moments from <em>the field</em></h2>
+      <div class="divider"></div>
+      <div class="gallery-preview-grid" id="galleryPreviewGrid"></div>
+      <div class="preview-footer">
+        <a href="#" class="btn-outline" data-page="page-gallery">View Full Gallery</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Events Preview -->
+  <section class="home-events-preview">
+    <div class="container fade-in">
+      <p class="section-label">Events &amp; Talks</p>
+      <h2 class="section-title">Upcoming <em>&amp; recent</em></h2>
+      <div class="divider"></div>
+      <div class="events-preview-list" id="eventsPreviewList"></div>
+      <div class="preview-footer" style="margin-top:1.5rem;">
+        <a href="#" class="btn-outline" data-page="page-events">All Events</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Journal Preview -->
+  <section class="home-journal-preview">
+    <div class="container fade-in">
+      <p class="section-label">Quarterly Journal</p>
+      <h2 class="section-title">Latest <em>research</em></h2>
+      <div class="divider"></div>
+      <p class="section-body">Peer-reviewed findings from our field missions and laboratory studies, published every quarter and available free to all.</p>
+      <div class="journal-preview-cards" id="journalPreviewCards"></div>
+      <div class="journal-preview-footer">
+        <a href="#" class="btn-outline-light" data-page="page-rnd" data-tab="journal">All Journals</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- News Preview -->
+  <section class="home-news-preview">
+    <div class="container fade-in">
+      <p class="section-label">News</p>
+      <h2 class="section-title">Latest from <em>openWater</em></h2>
+      <div class="divider"></div>
+      <div class="news-preview-grid">
+        <div class="news-feat" id="newsFeatured"></div>
+        <div class="news-side" id="newsSide"></div>
+      </div>
+      <div class="news-preview-footer">
+        <a href="#" class="btn-outline" data-page="page-news">All News</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a href="#" data-page="page-home">open<span>Water</span></a>
+          <p>Environmental intelligence for clean rivers. Community-rooted, data-driven, open-access. Mithila, Bihar — since 2026.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Explore</h4>
+          <ul>
+            <li><a href="#" data-page="page-gallery">Gallery</a></li>
+            <li><a href="#" data-page="page-events">Events &amp; Talks</a></li>
+            <li><a href="#" data-page="page-rnd">R&amp;D</a></li>
+            <li><a href="#" data-page="page-news">News</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Organisation</h4>
+          <ul>
+            <li><a href="#" data-page="page-about">About Us</a></li>
+            <li><a href="#" data-page="page-about">Join Us</a></li>
+            <li><a href="#" data-page="page-about">Contact</a></li>
+            <li><a href="#" data-page="page-rnd" data-tab="journal">Journal</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 openWater Foundation · Mithila, Bihar · All rights reserved</p>
+        <p>Mithila Jal Shakti</p>
+      </div>
+    </div>
+  </footer>
+</div><!-- /page-home -->
+
+
+<!-- ════════════════════════════════════════
+     PAGE: GALLERY
+════════════════════════════════════════ -->
+<div class="page gallery-page" id="page-gallery">
+  <div class="page-banner">
+    <div class="container">
+      <p class="section-label">Gallery</p>
+      <h1 class="section-title">Moments from <em>the field</em></h1>
+      <div class="divider"></div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="gallery-tabs" id="galleryTabs">
+      <button class="tab-btn active" data-gallerytab="mission">Mission Photos</button>
+      <button class="tab-btn" data-gallerytab="foundation">Foundation Photos</button>
+    </div>
+    <div class="gallery-full-grid" id="galleryFullGrid"></div>
+  </div>
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-bottom">
+        <p>© 2026 openWater Foundation · Mithila, Bihar</p>
+        <a href="#" data-page="page-home" style="font-size:0.75rem;color:rgba(255,255,255,0.35);">← Back to Home</a>
+      </div>
+    </div>
+  </footer>
+</div><!-- /page-gallery -->
+
+
+<!-- ════════════════════════════════════════
+     PAGE: EVENTS & TALKS
+════════════════════════════════════════ -->
+<div class="page events-page" id="page-events">
+  <div class="page-banner">
+    <div class="container">
+      <p class="section-label">Events &amp; Talks</p>
+      <h1 class="section-title">Upcoming <em>&amp; past</em></h1>
+      <div class="divider"></div>
+      <p class="section-body">Field drives, public talks, webinars, and school outreach programmes across Mithila and Bihar.</p>
+    </div>
+  </div>
+  <div class="container">
+    <div class="events-full-list" id="eventsFullList"></div>
+  </div>
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-bottom">
+        <p>© 2026 openWater Foundation · Mithila, Bihar</p>
+        <a href="#" data-page="page-home" style="font-size:0.75rem;color:rgba(255,255,255,0.35);">← Back to Home</a>
+      </div>
+    </div>
+  </footer>
+</div><!-- /page-events -->
+
+
+<!-- ════════════════════════════════════════
+     PAGE: R&D
+════════════════════════════════════════ -->
+<div class="page rnd-page" id="page-rnd">
+  <div class="page-banner">
+    <div class="container">
+      <p class="section-label">Research &amp; Development</p>
+      <h1 class="section-title">Science in <em>the field</em></h1>
+      <div class="divider"></div>
+      <p class="section-body">Field ecology, environmental chemistry, and open-source hardware — generating actionable intelligence for river restoration.</p>
+    </div>
+  </div>
+  <div class="container">
+    <div class="rnd-tabs">
+      <button class="rnd-tab-btn active" data-rndtab="missions">Missions</button>
+      <button class="rnd-tab-btn" data-rndtab="experiments">Experiments</button>
+      <button class="rnd-tab-btn" data-rndtab="equipment">Equipment</button>
+      <button class="rnd-tab-btn" data-rndtab="journal">Quarterly Journal</button>
+    </div>
+
+    <!-- Missions Panel -->
+    <div class="rnd-panel active" id="rnd-missions">
+      <div class="missions-grid">
+        <!--
+        <div class="mission-card">
+          <div class="mc-status active-s">● Active</div>
+          <h3>Bagmati Heavy Metal Survey 2026</h3>
+          <p>Seven-site sampling programme mapping arsenic, lead, and chromium levels along the full Bagmati stretch from Sitamarhi to Khagaria district. Quarterly analysis at our Darbhanga lab.</p>
+        </div>
+        <div class="mission-card">
+          <div class="mc-status active-s">● Active</div>
+          <h3>Kamla Biodiversity Baseline</h3>
+          <p>Three-year longitudinal study documenting fish populations, macroinvertebrates, and riparian vegetation at 18 fixed monitoring points. Year 2 of 3 underway.</p>
+        </div>
+        <div class="mission-card">
+          <div class="mc-status ongoing">◉ Ongoing</div>
+          <h3>Industrial Discharge Mapping — Darbhanga Belt</h3>
+          <p>GPS-tagged discharge point identification using drone thermal imaging and field verification. 8 undocumented discharge points identified so far; data submitted to BSPCB.</p>
+        </div>
+        <div class="mission-card">
+          <div class="mc-status ongoing">◉ Ongoing</div>
+          <h3>Groundwater–River Connectivity Study</h3>
+          <p>Isotopic tracer analysis tracking subsurface water exchange between riverside wells and the main river channel across 3 districts in the Mithila lowlands.</p>
+        </div>
+        <div class="mission-card">
+          <div class="mc-status active-s">● Active</div>
+          <h3>Monsoon Pollution Pulse Monitoring</h3>
+          <p>Continuous DO and turbidity logging during the June–September monsoon window to quantify first-flush pollutant loads from agricultural and urban catchments.</p>
+        </div>
+        <div class="mission-card">
+          <div class="mc-status ongoing">◉ Ongoing</div>
+          <h3>Citizen Science River Watch Network</h3>
+          <p>Training and equipping fishing communities across 6 districts to report anomalies via a simple WhatsApp-based observation protocol. 180 active reporters enrolled.</p>
+        </div>
+      -->
+      </div>
+    </div>
+     
+
+    <!-- Experiments Panel -->
+    <div class="rnd-panel" id="rnd-experiments">
+      <div class="exp-list">
+        <!--
+        <div class="exp-item">
+          <div>
+            <h3>Native Plant Bioremediation Trial</h3>
+            <p>Testing four native aquatic macrophytes (Hydrilla, Water hyacinth, Vetiver, Typha) for heavy metal uptake efficiency in controlled river-bank plots. Comparing removal rates against baseline across 90-day cycles.</p>
+          </div>
+          <div class="exp-phase">Phase 2</div>
+        </div>
+        <div class="exp-item">
+          <div>
+            <h3>Low-Cost Turbidity Sensor Prototype</h3>
+            <p>Developing a sub-₹500 optical turbidity sensor using photodiode arrays and open-source firmware. Calibrated against ISO 7027 reference methods. Pilot deployment of 40 units in Madhubani.</p>
+          </div>
+          <div class="exp-phase">Phase 3</div>
+        </div>
+        <div class="exp-item">
+          <div>
+            <h3>Microbial Source Tracking — Kamla River</h3>
+            <p>qPCR-based analysis differentiating human, livestock, and avian coliform sources at 12 sampling sites to identify and prioritise pollution intervention points for the Kamla corridor.</p>
+          </div>
+          <div class="exp-phase">Phase 1</div>
+        </div>
+        <div class="exp-item">
+          <div>
+            <h3>LoRa Mesh Network for Remote Sensor Relay</h3>
+            <p>Testing a peer-to-peer LoRa radio mesh to maintain data transmission during flood events when GSM infrastructure fails. 12-node pilot network deployed across 30 km of the Bagmati floodplain.</p>
+          </div>
+          <div class="exp-phase">Pilot</div>
+        </div>
+        <div class="exp-item">
+          <div>
+            <h3>Seasonal Algal Bloom Prediction Model</h3>
+            <p>Training a simple time-series model on 4 years of DO, phosphorus, and temperature data to generate 72-hour early warnings for eutrophication events in slow-moving stretches of the Gandak.</p>
+          </div>
+          <div class="exp-phase">Development</div>
+        </div>
+        -->
+      </div>
+    </div>
+    
+
+    <!-- Equipment Panel -->
+    <div class="rnd-panel" id="rnd-equipment">
+      <div class="equip-grid">
+        
+        <div class="equip-card">
+          <div class="equip-icon">🚣</div>
+          <h3>Research Boats</h3>
+          <p>Autonomous, 4G-connected vessel designed to map rivers pollution and detect illegal industrial dumping at 1/10th the cost of current solutions.</p>
+          <div class="equip-count">1 vessels</div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Journal Panel -->
+    <div class="rnd-panel" id="rnd-journal">
+      <div class="journal-full-list" id="journalFullList"></div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-bottom">
+        <p>© 2026 openWater Foundation · Mithila, Bihar</p>
+        <a href="#" data-page="page-home" style="font-size:0.75rem;color:rgba(255,255,255,0.35);">← Back to Home</a>
+      </div>
+    </div>
+  </footer>
+</div><!-- /page-rnd -->
+
+
+<!-- ════════════════════════════════════════
+     PAGE: NEWS
+════════════════════════════════════════ -->
+<div class="page news-page" id="page-news">
+  <div class="page-banner">
+    <div class="container">
+      <p class="section-label">News</p>
+      <h1 class="section-title">Latest from <em>openWater</em></h1>
+      <div class="divider"></div>
+      <p class="section-body">The 5 most recent stories from our work across Mithila and Bihar.</p>
+    </div>
+  </div>
+  <div class="container">
+    <div class="news-full-list" id="newsFullList"></div>
+  </div>
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-bottom">
+        <p>© 2026 openWater Foundation · Mithila, Bihar</p>
+        <a href="#" data-page="page-home" style="font-size:0.75rem;color:rgba(255,255,255,0.35);">← Back to Home</a>
+      </div>
+    </div>
+  </footer>
+</div><!-- /page-news -->
+
+
+<!-- ════════════════════════════════════════
+     PAGE: ABOUT US
+════════════════════════════════════════ -->
+<div class="page about-page" id="page-about">
+  <div class="page-banner">
+    <div class="container">
+      <p class="section-label">About Us</p>
+      <h1 class="section-title">A community built <em>on water</em></h1>
+      <div class="divider"></div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="about-intro">
+      <!-- Left: text + team -->
+      <div class="about-text fade-in">
+        <p><strong>openWater</strong> was founded in 2026 by Anand K. Jha, a high school student from the Mithila region who witnessed the rapid deterioration of the rivers that define the cultural and ecological identity of this land.</p>
+        <p>We operate as a registered NGO and foundation, combining open-source technology with deep community trust to generate environmental intelligence that is scientifically rigorous and practically usable by farmers, fishers, policymakers, and students.</p>
+        <p>Our work spans real-time monitoring, field research, policy advocacy, and youth education — grounded in the belief that <strong>clean rivers are a right, not a privilege</strong>.</p>
+
+        <div id="team-section" style="margin-top:2rem;">
+          <p class="section-label">Our Team</p>
+          <h2 class="section-title" style="font-size:1.8rem;">The people <em>behind the work</em></h2>
+          <div class="divider"></div>
+        </div>
+        <div class="team-grid">
+          <div class="team-card">
+            <div class="team-avatar"><img src="Gallery/Adobe Express - file.png" alt="Anand Kumar Jha" loading="lazy"></div>
+            <div class="team-name">Anand Kumar Jha</div>
+            <div class="team-role">Founder</div>
+          </div>
+          <!--
+          <div class="team-card">
+            <div class="team-avatar"><img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?w=150&q=70" alt="Sunita Mishra" loading="lazy"></div>
+            <div class="team-name">Sunita Mishra</div>
+            <div class="team-role">Head of Field Ops</div>
+          </div>
+          <div class="team-card">
+            <div class="team-avatar"><img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&q=70" alt="Rahul Thakur" loading="lazy"></div>
+            <div class="team-name">Rahul Thakur</div>
+            <div class="team-role">Lead Data Scientist</div>
+          </div>
+          <div class="team-card">
+            <div class="team-avatar"><img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?w=150&q=70" alt="Priya Kumari" loading="lazy"></div>
+            <div class="team-name">Priya Kumari</div>
+            <div class="team-role">Lab Director</div>
+          </div>
+          <div class="team-card">
+            <div class="team-avatar"><img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&q=70" alt="Deepak Kumar" loading="lazy"></div>
+            <div class="team-name">Deepak Kumar</div>
+            <div class="team-role">Hardware Engineer</div>
+          </div>
+          <div class="team-card">
+            <div class="team-avatar"><img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&q=70" alt="Anita Singh" loading="lazy"></div>
+            <div class="team-name">Anita Singh</div>
+            <div class="team-role">Community Liaison</div>
+          </div>
+          -->
+        </div>
+      </div>
+
+      <!-- Right: join + map + contact -->
+      <div class="about-right fade-in">
+        <!-- Join -->
+        <div class="join-box" id="join-section">
+          <h3>Join the Organisation</h3>
+          <p>We welcome volunteers, researchers, interns and partner organisations. Whether you bring scientific expertise or community connections, there is a meaningful role for you in openWater.</p>
+          <a href="mailto:anandjha6345@gmail.com" class="btn-primary">Apply to Join</a>
+        </div>
+
+        <!-- Map -->
+        <div class="map-box" id="address-section">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d115055.96!2d85.8909!3d26.1542!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39ec6bd7e99e5c6b%3A0x4cbecf0c9a26b82f!2sDarbhanga%2C%20Bihar!5e0!3m2!1sen!2sin!4v1715000000000"
+            width="100%" height="200" style="border:0;" allowfullscreen="" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade" title="openWater location map">
+          </iframe>
+          <div class="map-label">
+            <strong>openWater Foundation</strong>
+            <p>Chataria, Darbhanga — Mithila, Bihar 846004, India</p>
+          </div>
+        </div>
+
+        <!-- Contact -->
+        <div class="contact-box" id="contact-section">
+          <h3>Contact Us</h3>
+          <div class="contact-row"><span class="contact-icon">✉</span><a href="mailto:anandjha6345@gmail.com">anandjha6345@gmail.com</a></div>
+          <div class="contact-row"><span class="contact-icon">📞</span><span>+91 9060665192</span></div>
+          <div class="contact-row"><span class="contact-icon">📍</span><span>Chataria, Darbhanga, Bihar 846004</span></div>
+          <form class="contact-form" id="contactForm">
+            <input type="text" name="name" placeholder="Your name" required>
+            <input type="email" name="email" placeholder="Email address" required>
+            <textarea name="message" placeholder="Your message"></textarea>
+            <button type="submit" class="btn-primary">Send Message</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a href="#" data-page="page-home">open<span>Water</span></a>
+          <p>Environmental intelligence for clean rivers. Community-rooted, data-driven, open-access. Mithila, Bihar — since 2026.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Explore</h4>
+          <ul>
+            <li><a href="#" data-page="page-gallery">Gallery</a></li>
+            <li><a href="#" data-page="page-events">Events &amp; Talks</a></li>
+            <li><a href="#" data-page="page-rnd">R&amp;D</a></li>
+            <li><a href="#" data-page="page-news">News</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Organisation</h4>
+          <ul>
+            <li><a href="#" data-page="page-about">About Us</a></li>
+            <li><a href="#" data-page="page-about">Join Us</a></li>
+            <li><a href="#" data-page="page-about">Contact</a></li>
+            <li><a href="#" data-page="page-rnd" data-tab="journal">Journal</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 openWater Foundation · Mithila, Bihar · All rights reserved</p>
+        <p>Mithila Jal Shakti</p>
+      </div>
+      <div class="footer-socials" id="socialLinks"></div>
+    </div>
+  </footer>
+</div><!-- /page-about -->
+
+<!-- ════════════════════════════════════════
+     PAGE: TEAM
+════════════════════════════════════════ -->
+<div class="page team-page" id="page-team">
+  <div class="page-banner">
+    <div class="container">
+      <p class="section-label">Team</p>
+      <h1 class="section-title">Meet the <em>people</em></h1>
+      <div class="divider"></div>
+      <p class="section-body">A diverse team of scientists, engineers, and community leaders working together to protect the rivers of Mithila.</p>
+    </div>
+  </div>
+  <div class="container">
+    <div class="team-grid" id="teamGrid"></div>
+  </div>
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-bottom">
+        <p>© 2026 openWater Foundation · Mithila, Bihar</p>
+        <a href="#" data-page="page-home" style="font-size:0.75rem;color:rgba(255,255,255,0.35);">← Back to Home</a>
+      </div>
+    </div>
+  </footer>
+</div><!-- /page-team -->
+
+<!-- ════════════════════════════════════════
+     PAGE: ALUMNI
+════════════════════════════════════════ -->
+<div class="page alumni-page" id="page-alumni">
+  <div class="page-banner">
+    <div class="container">
+      <p class="section-label">Alumni</p>
+      <h1 class="section-title">Our <em>alumni network</em></h1>
+      <div class="divider"></div>
+      <p class="section-body">Former members now working across environmental and water sectors, continuing the mission beyond openWater.</p>
+    </div>
+  </div>
+  <div class="container">
+    <div class="alumni-list" id="alumniList"></div>
+  </div>
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-bottom">
+        <p>© 2026 openWater Foundation · Mithila, Bihar</p>
+        <a href="#" data-page="page-home" style="font-size:0.75rem;color:rgba(255,255,255,0.35);">← Back to Home</a>
+      </div>
+    </div>
+  </footer>
+</div><!-- /page-alumni -->
+
+<!-- ════════════════════════════════════════
+     PAGE: BLOG/ARTICLES
+════════════════════════════════════════ -->
+<div class="page articles-page" id="page-articles">
+  <div class="page-banner">
+    <div class="container">
+      <p class="section-label">Blog</p>
+      <h1 class="section-title">Insights &amp; <em>articles</em></h1>
+      <div class="divider"></div>
+      <p class="section-body">Essays, research summaries, and reflections on water, environment, and community from the openWater team.</p>
+    </div>
+  </div>
+  <div class="container">
+    <div class="articles-list" id="articlesList"></div>
+  </div>
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-bottom">
+        <p>© 2026 openWater Foundation · Mithila, Bihar</p>
+        <a href="#" data-page="page-home" style="font-size:0.75rem;color:rgba(255,255,255,0.35);">← Back to Home</a>
+      </div>
+    </div>
+  </footer>
+</div><!-- /page-articles-->
+
+<script src="js/main.js"></script>
+</body>
+</html>
